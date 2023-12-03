@@ -54,10 +54,24 @@
 </div>
 
 <script>
-  // JavaScript for snowflakes remains the same
   function createSnowflake() {
-    // ... existing code ...
+    const snowflake = document.createElement('div');
+    snowflake.innerHTML = '❄';
+    snowflake.classList.add('snowflake');
+    snowflake.style.left = Math.random() * 100 + '%';
+    snowflake.style.opacity = Math.random();
+    snowflake.style.transform = 'scale(' + (Math.random() * 0.5 + 0.5) + ')';
+    snowflake.style.animationName = 'fall';
+    snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+    snowflake.style.animationDelay = Math.random() * 5 + 's';
+
+    document.getElementById('snowflakes').appendChild(snowflake);
+
+    setTimeout(() => {
+      snowflake.remove();
+    }, 5000);
   }
+
   setInterval(createSnowflake, 100);
 </script>
 </body>
